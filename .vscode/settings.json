@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "terraform.path": "terraform12",
+  "terraform.indexing": {
+    "enabled": false
+  },
+  "terraform.languageServer": {
+    "enabled": true,
+    "args": []
+  }
+}
