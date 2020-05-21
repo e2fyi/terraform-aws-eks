@@ -1,3 +1,8 @@
+variable "enabled" {
+  type        = bool
+  default     = true
+  description = "Set to false to not create a EKS control plane"
+}
 variable "cluster_name" {
   type        = string
   description = "Name for the EKS cluster."

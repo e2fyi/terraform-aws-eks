@@ -34,7 +34,7 @@ resource "aws_subnet" "public" {
     Role = "public"
     AZ   = local.subnet_azs[count.index]
     }, var.cluster_name == "" ? {} : {
-    "kubernetes.io/role/internal-elb"           = 1
+    "kubernetes.io/role/elb"                    = 1
     "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   })
 }

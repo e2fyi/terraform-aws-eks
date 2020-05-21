@@ -18,7 +18,7 @@ module "vpc-eks-sg-dev" {
   cidr_block         = var.vpc_cidr_block
   subnets_az_to_cidr = var.public_subnets
   subnets_az_with_nat = {
-    for az, _ in var.private_eks_subnets : az => true
+    for az, _ in var.private_eks_subnets : az => true || var.eks_control_plane
   }
   enable_dns_hostnames = true                       # required to resolve EKS endpoint
   cidr_block_for_ssh   = var.whitelisted_cidr_block # any IP can ssh into the public subnet
@@ -63,8 +63,10 @@ module "s3-kubeflow" {
 
 
 module "eks-sg-dev" {
+
   source = "./modules/eks"
 
+  enabled      = var.eks_control_plane
   cluster_name = "eks-sg-dev"
   k8s_version  = "1.15"
 

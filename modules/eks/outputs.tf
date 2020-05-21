@@ -1,5 +1,5 @@
 output "endpoint" {
-  value       = aws_eks_cluster.eks.endpoint
+  value       = aws_eks_cluster.eks[*].endpoint
   description = "Endpoint to access EKS control plane APIs."
 }
 output "kubeconfig-certificate-authority-data" {

@@ -3,6 +3,11 @@ variable "aws_region" {
   default     = "ap-southeast-1"
   description = "AWS region. Defaults to Singapore."
 }
+variable "eks_control_plane" {
+  type        = bool
+  default     = true
+  description = "Set to false to NOT create a EKS control plane."
+}
 variable "vpc_cidr_block" {
   type        = string
   default     = "10.0.0.0/16"

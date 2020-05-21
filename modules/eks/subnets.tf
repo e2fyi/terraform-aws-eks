@@ -1,5 +1,5 @@
 locals {
-  num_subnets  = length(var.subnets_az_to_cidr)
+  num_subnets  = var.enabled ? length(var.subnets_az_to_cidr) : 0
   subnet_azs   = keys(var.subnets_az_to_cidr)
   subnet_cidrs = values(var.subnets_az_to_cidr)
 }
